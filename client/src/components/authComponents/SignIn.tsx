@@ -25,7 +25,7 @@ function SignIn({ signUpMode }: any) {
             <p className="mt-2 text-center text-sm text-gray-600">
               Or New Member?{" "}
               <button
-                className="font-medium text-lg text-indigo-600 hover:text-indigo-500 hover:underline"
+                className="font-medium text-lg text-blue-600 hover:text-blue-500 hover:underline"
                 onClick={signUpMode}
               >
                 Sign Up
@@ -46,7 +46,7 @@ function SignIn({ signUpMode }: any) {
                   type="email"
                   autoComplete="email"
                   required
-                  className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 text-lg rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10"
+                  className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 text-lg rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10"
                   placeholder="Email address"
                 />
               </div>
@@ -60,7 +60,7 @@ function SignIn({ signUpMode }: any) {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 text-lg rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10"
+                  className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 text-lg rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10"
                   placeholder="Password"
                 />
               </div>
@@ -72,7 +72,7 @@ function SignIn({ signUpMode }: any) {
               <div className="text-sm">
                 <a
                   href="#"
-                  className="font-medium text-md text-indigo-600 hover:text-indigo-500"
+                  className="font-medium text-md text-blue-600 hover:text-blue-500"
                 >
                   Forgot your password?
                 </a>
@@ -82,11 +82,11 @@ function SignIn({ signUpMode }: any) {
             <div>
               <button
                 type="button"
-                className="group relative w-full flex items-center justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white text-lg bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group relative w-full flex items-center justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white text-lg bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 <span className=" flex items-center pl-3">
                   <LockClosedIcon
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                    className="h-5 w-5 text-blue-500 group-hover:text-blue-400"
                     aria-hidden="true"
                   />
                 </span>

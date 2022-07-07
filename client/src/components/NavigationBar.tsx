@@ -5,11 +5,12 @@ import { Outlet, Link, useLocation } from "react-router-dom";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
-import galleryImage from "../../assets/gallery.png";
+import galleryImage from "../assets/gallery.png";
+import Copyright from "./Copyright";
 
 interface navItem {
   name: string;
-  href: string;
+  to: string;
   current?: boolean;
 }
 
@@ -18,19 +19,19 @@ function classNames(...classes: any) {
 }
 
 export default function NavigationBar() {
-  const { state } = useLocation();
+  const { pathname } = useLocation();
 
   const navigation: navItem[] = [
-    { name: "Home", href: "/", current: !state ? true : state === "/" },
-    { name: "Gallery", href: "gallery", current: state === "gallery" },
-    { name: "About Us", href: "about", current: state === "about" },
-    { name: "Contact", href: "contact", current: state === "contact" },
-    { name: "Login", href: "login" },
+    { name: "Home", to: "/", current: pathname === "/" },
+    { name: "Gallery", to: "gallery", current: pathname === "/gallery" },
+    { name: "About Us", to: "about", current: pathname === "/about" },
+    { name: "Contact", to: "contact", current: pathname === "/contact" },
+    { name: "Login", to: "login" },
   ];
 
   return (
     <>
-      <Disclosure as="nav" className="bg-gray-800 shadow">
+      <Disclosure as="nav" className="bg-slate-800 shadow">
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -38,12 +39,18 @@ export default function NavigationBar() {
                 <div className="flex-1 flex items-stretch justify-between">
                   {/* Logo */}
                   <div className="flex-shrink-0 flex items-center">
-                    <Link to="/" state="/">
+                    <Link
+                      className="flex items-center hover:bg-slate-700  rounded-md"
+                      to="/"
+                    >
                       <img
-                        className="block h-10 hover:bg-gray-700 px-1 rounded-md"
+                        className="block h-10 px-1"
                         src={galleryImage}
                         alt="Gallery"
                       />
+                      <h1 className="text-slate-50 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                        Gallery
+                      </h1>
                     </Link>
                   </div>
                   {/* Nav Item */}
@@ -52,12 +59,11 @@ export default function NavigationBar() {
                       {navigation.map((item) => (
                         <Link
                           key={item.name}
-                          to={item.href}
-                          state={item.href}
+                          to={item.to}
                           className={classNames(
                             item.current
-                              ? "bg-gray-900 text-white"
-                              : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                              ? "bg-blue-500 text-black"
+                              : "text-slate-50 hover:bg-slate-700 hover:text-white",
                             "px-3 py-2 rounded-md text-sm font-medium"
                           )}
                           aria-current={item.current ? "page" : undefined}
@@ -70,7 +76,7 @@ export default function NavigationBar() {
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
                   {/* Mobile menu button*/}
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -96,12 +102,11 @@ export default function NavigationBar() {
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
-                      to={item.href}
-                      state={item.href}
+                      to={item.to}
                       className={classNames(
                         item.current
-                          ? "bg-gray-900 text-white"
-                          : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          ? "bg-blue-500 text-black"
+                          : "text-slate-50 hover:bg-slate-700 hover:text-white",
                         "block px-3 py-2 rounded-md text-base font-medium"
                       )}
                       aria-current={item.current ? "page" : undefined}
@@ -118,6 +123,7 @@ export default function NavigationBar() {
 
       {/* Page Views */}
       <Outlet />
+      <Copyright />
     </>
   );
 }
