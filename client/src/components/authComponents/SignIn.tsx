@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { FcGoogle } from "react-icons/fc";
 
 import galleryImage from "../../assets/gallery.png";
 import { Link } from "react-router-dom";
 
+import {
+  logInWithEmailAndPassword,
+  signInWithGoogle,
+} from "../../services/firebase";
+
 function SignIn({ signUpMode }: any) {
+  const [state, setState] = useState({ email: "", password: "" });
+
+  const handleChange = (e: any): void => {
+    setState({ ...state, [e.currentTarget.name]: e.currentTarget.value });
+  };
+
+  const handleSubmit = (e: any): void => {
+    e.preventDefault();
+
+    logInWithEmailAndPassword(state);
+  };
   return (
     <section className="sign-in-section">
       <div className="min-h-full flex items-center justify-center ">
@@ -33,7 +49,12 @@ function SignIn({ signUpMode }: any) {
               Here
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          {/* {error && <AlertMessage message={error.} />} */}
+          <form
+            className="mt-8 space-y-6"
+            method="POST"
+            onSubmit={handleSubmit}
+          >
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm space-y-1">
               <div>
@@ -48,6 +69,8 @@ function SignIn({ signUpMode }: any) {
                   required
                   className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 text-lg rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10"
                   placeholder="Email address"
+                  value={state.email}
+                  onChange={handleChange}
                 />
               </div>
               <div>
@@ -62,6 +85,8 @@ function SignIn({ signUpMode }: any) {
                   required
                   className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 text-lg rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10"
                   placeholder="Password"
+                  value={state.password}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -81,7 +106,7 @@ function SignIn({ signUpMode }: any) {
 
             <div>
               <button
-                type="button"
+                type="submit"
                 className="group relative w-full flex items-center justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white text-lg bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 <span className=" flex items-center pl-3">
@@ -98,6 +123,7 @@ function SignIn({ signUpMode }: any) {
               <button
                 type="button"
                 className="group relative w-full flex items-center justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white text-lg bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                onClick={signInWithGoogle}
               >
                 <span className=" flex items-center pl-3">
                   <FcGoogle />
