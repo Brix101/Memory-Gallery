@@ -39,12 +39,18 @@ export default function NavigationBar() {
                 <div className="flex-1 flex items-stretch justify-between">
                   {/* Logo */}
                   <div className="flex-shrink-0 flex items-center">
-                    <Link to="/">
+                    <Link
+                      className="flex items-center hover:bg-slate-700  rounded-md"
+                      to="/"
+                    >
                       <img
-                        className="block h-10 hover:bg-slate-700 px-1 rounded-md"
+                        className="block h-10 px-1"
                         src={galleryImage}
                         alt="Gallery"
                       />
+                      <h1 className="text-slate-50 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                        Gallery
+                      </h1>
                     </Link>
                   </div>
                   {/* Nav Item */}
