@@ -18,6 +18,10 @@ import { mainListItems, secondaryListItems } from "./listItems";
 import Copyright from "../Copyright";
 import { Outlet } from "react-router-dom";
 import { indigo, red } from "@mui/material/colors";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { toggleTheme } from "../../features/themeSlice";
 
 const drawerWidth: number = 240;
 
@@ -69,22 +73,29 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
-const mdTheme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: {
-      main: indigo[500],
-    },
-    secondary: {
-      main: red[500],
-    },
-  },
-});
-
 function Admin() {
+  const dispatch = useAppDispatch();
+  const { mode } = useAppSelector((state) => state.theme);
+
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
+  };
+
+  const mdTheme = createTheme({
+    palette: {
+      mode: mode,
+      primary: {
+        main: indigo[500],
+      },
+      secondary: {
+        main: red[500],
+      },
+    },
+  });
+
+  const colorMode = (): void => {
+    dispatch(toggleTheme());
   };
 
   return (
@@ -118,6 +129,13 @@ function Admin() {
             >
               Dashboard
             </Typography>
+            <IconButton sx={{ ml: 1 }} onClick={colorMode} color="inherit">
+              {mdTheme.palette.mode === "dark" ? (
+                <Brightness7Icon />
+              ) : (
+                <Brightness4Icon />
+              )}
+            </IconButton>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
