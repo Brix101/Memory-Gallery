@@ -14,7 +14,6 @@ import Container from "@mui/material/Container";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import { mainListItems, secondaryListItems } from "./listItems";
 import Copyright from "../Copyright";
 import { Outlet } from "react-router-dom";
 import { indigo, red } from "@mui/material/colors";
@@ -23,6 +22,7 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { toggleTheme } from "../../features/themeSlice";
 import { Avatar, Menu, MenuItem, Tooltip } from "@mui/material";
+import SidebarItem from "./SidebarItem";
 
 const drawerWidth: number = 240;
 
@@ -203,9 +203,7 @@ function Admin() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+            <SidebarItem />
           </List>
         </Drawer>
         <Box

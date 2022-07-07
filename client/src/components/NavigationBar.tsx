@@ -10,7 +10,7 @@ import Copyright from "./Copyright";
 
 interface navItem {
   name: string;
-  href: string;
+  to: string;
   current?: boolean;
 }
 
@@ -19,14 +19,14 @@ function classNames(...classes: any) {
 }
 
 export default function NavigationBar() {
-  const { state } = useLocation();
+  const { pathname } = useLocation();
 
   const navigation: navItem[] = [
-    { name: "Home", href: "/", current: !state ? true : state === "/" },
-    { name: "Gallery", href: "gallery", current: state === "gallery" },
-    { name: "About Us", href: "about", current: state === "about" },
-    { name: "Contact", href: "contact", current: state === "contact" },
-    { name: "Login", href: "login" },
+    { name: "Home", to: "/", current: pathname === "/" },
+    { name: "Gallery", to: "gallery", current: pathname === "/gallery" },
+    { name: "About Us", to: "about", current: pathname === "/about" },
+    { name: "Contact", to: "contact", current: pathname === "/contact" },
+    { name: "Login", to: "login" },
   ];
 
   return (
@@ -39,7 +39,7 @@ export default function NavigationBar() {
                 <div className="flex-1 flex items-stretch justify-between">
                   {/* Logo */}
                   <div className="flex-shrink-0 flex items-center">
-                    <Link to="/" state="/">
+                    <Link to="/">
                       <img
                         className="block h-10 hover:bg-slate-700 px-1 rounded-md"
                         src={galleryImage}
@@ -53,8 +53,7 @@ export default function NavigationBar() {
                       {navigation.map((item) => (
                         <Link
                           key={item.name}
-                          to={item.href}
-                          state={item.href}
+                          to={item.to}
                           className={classNames(
                             item.current
                               ? "bg-blue-500 text-black"
@@ -97,8 +96,7 @@ export default function NavigationBar() {
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
-                      to={item.href}
-                      state={item.href}
+                      to={item.to}
                       className={classNames(
                         item.current
                           ? "bg-blue-500 text-black"
