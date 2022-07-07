@@ -1,11 +1,13 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import NavigationBar from "./components/NavigationBar";
+import { Counter } from "./features/counter/Counter";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <div>
+      <NavigationBar />
+      <Counter />
     </div>
   );
 }
