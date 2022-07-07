@@ -1,22 +1,30 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React, { Fragment } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 
 import { Disclosure, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
-const navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "Gallery", href: "gallery", current: false },
-  { name: "About Us", href: "about", current: false },
-  { name: "Contact", href: "contact", current: false },
-];
+interface navItem {
+  name: string;
+  href: string;
+  current?: boolean;
+}
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function NavigationBar() {
+  const { state } = useLocation();
+
+  const navigation: navItem[] = [
+    { name: "Home", href: "/", current: !state ? true : state === "/" },
+    { name: "Gallery", href: "gallery", current: state === "gallery" },
+    { name: "About Us", href: "about", current: state === "about" },
+    { name: "Contact", href: "contact", current: state === "contact" },
+  ];
+
   return (
     <>
       <Disclosure as="nav" className="bg-gray-800">
@@ -45,6 +53,7 @@ export default function NavigationBar() {
                         <Link
                           key={item.name}
                           to={item.href}
+                          state={item.href}
                           className={classNames(
                             item.current
                               ? "bg-gray-900 text-white"
@@ -88,6 +97,7 @@ export default function NavigationBar() {
                     <Link
                       key={item.name}
                       to={item.href}
+                      state={item.href}
                       className={classNames(
                         item.current
                           ? "bg-gray-900 text-white"
