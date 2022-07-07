@@ -5,9 +5,8 @@ import ListItemText from "@mui/material/ListItemText";
 import ListSubheader from "@mui/material/ListSubheader";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ImageIcon from "@mui/icons-material/Image";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import PeopleIcon from "@mui/icons-material/People";
-import BarChartIcon from "@mui/icons-material/BarChart";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import LayersIcon from "@mui/icons-material/Layers";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 
@@ -27,15 +26,15 @@ export const mainListItems = (
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <PeopleIcon />
+        <PeopleAltIcon />
       </ListItemIcon>
       <ListItemText primary="Users" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <BarChartIcon />
+        <ManageAccountsIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
+      <ListItemText primary="Account" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
