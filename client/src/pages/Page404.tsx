@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { TbForbid } from "react-icons/tb";
 
 function Page404() {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col items-center">
       <TbForbid className="w-12 h-12 mt-8 text-indigo-200" aria-hidden="true" />
@@ -11,12 +12,13 @@ function Page404() {
       </h1>
       <p className="text-gray-700 dark:text-gray-300">
         Page not found. Check the address or{" "}
-        <Link
+        <button
           className="text-indigo-600 hover:underline dark:text-indigo-300"
-          to="/"
+          // to="/"
+          onClick={() => navigate(-1)}
         >
           go back
-        </Link>
+        </button>
         .
       </p>
     </div>
