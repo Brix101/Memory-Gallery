@@ -22,6 +22,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { toggleTheme } from "../../features/themeSlice";
+import { Avatar, Menu, MenuItem, Tooltip } from "@mui/material";
 
 const drawerWidth: number = 240;
 
@@ -73,14 +74,17 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
 function Admin() {
   const dispatch = useAppDispatch();
   const { mode } = useAppSelector((state) => state.theme);
 
   const [open, setOpen] = React.useState(true);
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
+
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null
+  );
 
   const mdTheme = createTheme({
     palette: {
@@ -96,6 +100,18 @@ function Admin() {
 
   const colorMode = (): void => {
     dispatch(toggleTheme());
+  };
+
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
+
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
   };
 
   return (
@@ -141,6 +157,35 @@ function Admin() {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
+            <Box sx={{ flexGrow: 0, pl: 2 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
