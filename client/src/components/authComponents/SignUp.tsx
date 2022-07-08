@@ -39,13 +39,13 @@ function SignUp({ signInMode }: any) {
                 alt="Gallery"
               />
             </Link>
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-              Sign Up a new Account
+            <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+              Create a new Account
             </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
+            <p className="mt-2 text-sm text-gray-600">
               Or a Member?{" "}
               <button
-                className="font-medium text-lg text-indigo-600 hover:text-indigo-500 hover:underline"
+                className="font-medium text-lg text-blue-600 hover:text-blue-500 hover:underline"
                 onClick={signInMode}
               >
                 Sign In
@@ -71,46 +71,44 @@ function SignUp({ signInMode }: any) {
                   type="email"
                   autoComplete="email"
                   required
-                  className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 text-lg rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10"
+                  className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 text-lg rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10"
                   placeholder="Email address"
                   value={state.email}
                   onChange={handleChange}
                 />
               </div>
-              <div className="flex items-center justify-between">
+              <div>
+                <label htmlFor="password" className="sr-only">
+                  Password
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="current-password"
+                  required
+                  className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 text-lg rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10"
+                  placeholder="Password"
+                  value={state.password}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
                 <div>
-                  <label htmlFor="password" className="sr-only">
+                  <label htmlFor="confirm_password" className="sr-only">
                     Password
                   </label>
                   <input
-                    id="password"
-                    name="password"
+                    id="confirm_password"
+                    name="confirm_password"
                     type="password"
                     autoComplete="current-password"
                     required
-                    className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 text-lg rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10"
-                    placeholder="Password"
-                    value={state.password}
-                    onChange={handleChange}
+                    className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 text-lg rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10"
+                    placeholder="Confirm Password"
+                    value={confirmPass}
+                    onChange={(e: any) => setConfirmPass(e.target.value)}
                   />
-                </div>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <label htmlFor="confirm_password" className="sr-only">
-                      Password
-                    </label>
-                    <input
-                      id="confirm_password"
-                      name="confirm_password"
-                      type="password"
-                      autoComplete="current-password"
-                      required
-                      className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 text-lg rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10"
-                      placeholder="Confirm Password"
-                      value={confirmPass}
-                      onChange={(e: any) => setConfirmPass(e.target.value)}
-                    />
-                  </div>
                 </div>
               </div>
             </div>
@@ -118,28 +116,15 @@ function SignUp({ signInMode }: any) {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex items-center justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white text-lg bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group relative w-full flex items-center justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white text-lg bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 <span className=" flex items-center pl-3">
                   <LockClosedIcon
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                    className="h-5 w-5 text-blue-500 group-hover:text-blue-400"
                     aria-hidden="true"
                   />
                 </span>
                 Sign Up
-              </button>
-              <p className="m-2 text-center text-sm text-gray-600">
-                or Sign Up with
-              </p>
-              <button
-                type="button"
-                className="group relative w-full flex items-center justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white text-lg bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                onClick={signInWithGoogle}
-              >
-                <span className=" flex items-center pl-3">
-                  <FcGoogle />
-                </span>
-                Google
               </button>
             </div>
           </form>
