@@ -1,27 +1,71 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { TbForbid } from "react-icons/tb";
+
+import image404 from "../assets/images/undraw_page_not_found_su7k.svg";
+
+import { Box, Button, Container, Typography } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 function Page404() {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col items-center">
-      <TbForbid className="w-12 h-12 mt-8 text-indigo-200" aria-hidden="true" />
-      <h1 className="text-6xl font-semibold text-gray-700 dark:text-gray-200">
-        404
-      </h1>
-      <p className="text-gray-700 dark:text-gray-300">
-        Page not found. Check the address or{" "}
-        <button
-          className="text-indigo-600 hover:underline dark:text-indigo-300"
-          // to="/"
-          onClick={() => navigate(-1)}
+    <Box
+      component="main"
+      sx={{
+        alignItems: "center",
+        display: "flex",
+        flexGrow: 1,
+        minHeight: "100%",
+      }}
+    >
+      <Container maxWidth="md">
+        <Box
+          sx={{
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "column",
+          }}
         >
-          go back
-        </button>
-        .
-      </p>
-    </div>
+          <Typography
+            align="center"
+            color="textPrimary"
+            variant="h1"
+            component="p"
+          >
+            404: The page you are looking for isn’t here
+          </Typography>
+          <Typography align="center" color="textPrimary" variant="subtitle2">
+            You either tried some shady route or you came here by mistake.
+            Whichever it is, try using the navigation
+          </Typography>
+          <Box sx={{ textAlign: "center" }}>
+            <img
+              alt="Under development"
+              src={image404}
+              style={{
+                marginTop: 50,
+                display: "inline-block",
+                maxWidth: "100%",
+                width: 560,
+              }}
+            />
+          </Box>
+          {/* <NextLink
+            href="/"
+            passHref
+          >
+            <Button
+              component="a"
+              startIcon={(<ArrowBackIcon fontSize="small" />)}
+              sx={{ mt: 3 }}
+              variant="contained"
+            >
+              Go back to dashboard
+            </Button>
+          </NextLink> */}
+        </Box>
+      </Container>
+    </Box>
   );
 }
 

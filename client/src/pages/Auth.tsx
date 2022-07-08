@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import "./Auth.css";
-
+import "../assets/css/Auth.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 
-import online_test from "../../assets/online_test.svg";
-import photo_session from "../../assets/photo_session.svg";
-import SignIn from "../../components/authComponents/SignIn";
-import SignUp from "../../components/authComponents/SignUp";
-import { auth } from "../../services/firebase";
-import LinearLoading from "../../components/LinearLoading";
+import online_test from "../assets/images/online_test.svg";
+import photo_session from "../assets/images/photo_session.svg";
+import SignIn from "../components/authComponents/SignIn";
+import SignUp from "../components/authComponents/SignUp";
+import { auth } from "../services/firebase";
+import LinearLoading from "../components/LinearLoading";
 import { Link, Navigate } from "react-router-dom";
 
 function Auth() {

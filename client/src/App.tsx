@@ -4,7 +4,7 @@ import Admin from "./layout/Admin";
 import Main from "./layout/Main";
 import About from "./pages/About";
 import Account from "./pages/Account";
-import Auth from "./pages/auth/Auth";
+import Auth from "./pages/Auth";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import Gallery from "./pages/Gallery";

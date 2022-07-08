@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { FcGoogle } from "react-icons/fc";
 
-import galleryImage from "../../assets/gallery.png";
+import galleryImage from "../../assets/images/gallery.png";
 import { Link } from "react-router-dom";
 
 import {

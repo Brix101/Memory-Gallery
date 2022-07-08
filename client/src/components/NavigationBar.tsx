@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
-import galleryImage from "../assets/gallery.png";
+import galleryImage from "../assets/images/gallery.png";
 import { Typography } from "@mui/material";
 
 interface navItem {
