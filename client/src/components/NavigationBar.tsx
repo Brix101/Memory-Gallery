@@ -40,16 +40,16 @@ export default function NavigationBar() {
                   {/* Logo */}
                   <div className="flex-shrink-0 flex items-center">
                     <Link
-                      className="flex items-center hover:bg-slate-700  rounded-md"
+                      className="flex items-center hover:bg-slate-700  px-1 rounded-md"
                       to="/"
                     >
                       <img
-                        className="block h-10 px-1"
+                        className="block h-10"
                         src={galleryImage}
                         alt="Gallery"
                       />
                       <Typography
-                        className="text-slate-50 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                        className="hidden sm:block text-slate-50 hover:text-white pl-2"
                         variant="h5"
                         component="h2"
                       >
