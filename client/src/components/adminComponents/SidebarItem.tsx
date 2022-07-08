@@ -7,6 +7,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ImageIcon from "@mui/icons-material/Image";
+import MessageIcon from "@mui/icons-material/Message";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import { Divider, ListSubheader } from "@mui/material";
@@ -37,6 +38,12 @@ function SidebarItem() {
       current: pathname === "/admin/images",
     },
     {
+      name: "Messages",
+      to: "messages",
+      icon: <MessageIcon />,
+      current: pathname === "/admin/messages",
+    },
+    {
       name: "Users",
       to: "users",
       icon: <PeopleAltIcon />,
@@ -55,7 +62,7 @@ function SidebarItem() {
         <ListItemButton
           selected={item.current}
           onClick={() => {
-            navigate(item.to);
+            navigate(item.to, { state: item.name });
           }}
         >
           <ListItemIcon>{item.icon}</ListItemIcon>

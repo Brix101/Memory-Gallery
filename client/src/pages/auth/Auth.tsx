@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Auth.css";
 
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -9,18 +9,15 @@ import SignIn from "../../components/authComponents/SignIn";
 import SignUp from "../../components/authComponents/SignUp";
 import { auth } from "../../services/firebase";
 import LinearLoading from "../../components/LinearLoading";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 function Auth() {
-  const navigate = useNavigate();
   const [mode, setMode] = useState("");
   const [user, loading] = useAuthState(auth);
 
-  useEffect(() => {
-    if (user) {
-      return navigate("/admin");
-    }
-  });
+  if (user) {
+    return <Navigate to="/admin" replace />;
+  }
 
   const signUpMode = () => {
     setMode("sign-up-mode");

@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Gallery from "./pages/Gallery";
 import Home from "./pages/Home";
 import Images from "./pages/Images";
+import Messages from "./pages/Messages";
 import Page404 from "./pages/Page404";
 import Users from "./pages/Users";
 
@@ -28,6 +29,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="account" element={<Account />} />
           <Route path="images" element={<Images />} />
+          <Route path="messages" element={<Messages />} />
           <Route path="users" element={<Users />} />
         </Route>
         <Route path="*" element={<Page404 />} />

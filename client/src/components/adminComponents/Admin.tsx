@@ -15,7 +15,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Copyright from "../Copyright";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { indigo, red } from "@mui/material/colors";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
@@ -79,12 +79,10 @@ const Drawer = styled(MuiDrawer, {
 const settings = ["Profile", "Account", "Dashboard"];
 
 function Admin() {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { mode } = useAppSelector((state) => state.theme);
 
   const [open, setOpen] = React.useState(true);
-
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
@@ -118,12 +116,9 @@ function Admin() {
   };
 
   const [user, loading] = useAuthState(auth);
-  React.useEffect(() => {
-    if (!user) {
-      return navigate("/login");
-    }
-  });
-
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
   return (
     <ThemeProvider theme={mdTheme}>
       {!loading && (
@@ -154,7 +149,7 @@ function Admin() {
                 noWrap
                 sx={{ flexGrow: 1 }}
               >
-                Dashboard
+                {/* {state ? state : "Dashboard"} */}
               </Typography>
               <IconButton sx={{ ml: 1 }} onClick={colorMode} color="inherit">
                 {mdTheme.palette.mode === "dark" ? (
@@ -221,6 +216,7 @@ function Admin() {
               </IconButton>
             </Toolbar>
             <Divider />
+            {/* Side bar Navigation */}
             <List component="nav">
               <SidebarItem />
             </List>
