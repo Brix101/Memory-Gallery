@@ -1,12 +1,11 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React, { Fragment } from "react";
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { Disclosure, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 import galleryImage from "../assets/gallery.png";
-import AppFooter from "./AppFooter";
 import { Typography } from "@mui/material";
 
 interface navItem {
@@ -125,12 +124,6 @@ export default function NavigationBar() {
           </>
         )}
       </Disclosure>
-
-      {/* Page Views */}
-      <div className="min-h-screen">
-        <Outlet />
-      </div>
-      <AppFooter />
     </>
   );
 }

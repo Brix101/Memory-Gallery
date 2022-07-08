@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Admin from "./components/adminComponents/Admin";
-import NavigationBar from "./components/NavigationBar";
+import Admin from "./layout/Admin";
+import Main from "./layout/Main";
 import About from "./pages/About";
 import Account from "./pages/Account";
 import Auth from "./pages/auth/Auth";
@@ -18,7 +18,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<NavigationBar />}>
+        <Route path="/" element={<Main />}>
           <Route index element={<Home />} />
           <Route path="gallery" element={<Gallery />} />
           <Route path="about" element={<About />} />

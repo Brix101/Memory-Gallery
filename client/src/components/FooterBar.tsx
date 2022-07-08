@@ -33,7 +33,7 @@ function Copyright() {
   );
 }
 
-export default function AppFooter() {
+export default function FooterBar() {
   return (
     <Box
       className="bg-blue-800"
