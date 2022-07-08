@@ -6,7 +6,8 @@ import { Disclosure, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 import galleryImage from "../assets/gallery.png";
-import Copyright from "./Copyright";
+import AppFooter from "./AppFooter";
+import { Typography } from "@mui/material";
 
 interface navItem {
   name: string;
@@ -48,9 +49,13 @@ export default function NavigationBar() {
                         src={galleryImage}
                         alt="Gallery"
                       />
-                      <h1 className="text-slate-50 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                      <Typography
+                        className="text-slate-50 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                        variant="h5"
+                        component="h2"
+                      >
                         Gallery
-                      </h1>
+                      </Typography>
                     </Link>
                   </div>
                   {/* Nav Item */}
@@ -122,8 +127,10 @@ export default function NavigationBar() {
       </Disclosure>
 
       {/* Page Views */}
-      <Outlet />
-      <Copyright />
+      <div className="min-h-screen">
+        <Outlet />
+      </div>
+      <AppFooter />
     </>
   );
 }
