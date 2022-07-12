@@ -1,10 +1,11 @@
-import { Image } from '@/interfaces/image.interface';
 import { model, Schema, Document } from 'mongoose';
+import { Image } from '@/interfaces/image.interface';
 
 const imageSchema: Schema = new Schema(
   {
     title: {
       type: String,
+      require: true,
     },
     description: {
       type: String,
@@ -14,10 +15,9 @@ const imageSchema: Schema = new Schema(
         type: String,
       },
     ],
-    imageLink: {
-      type: String,
-      require: true,
-    },
+    originalname: { type: String, required: true },
+    path: { type: String, required: true },
+    filename: { type: String, required: true },
   },
   { timestamps: true },
 );
