@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { FcGoogle } from "react-icons/fc";
 
-import galleryImage from "../../assets/gallery.png";
+import galleryImage from "../../assets/images/gallery.png";
 import { Link } from "react-router-dom";
 
 import {
@@ -35,10 +35,10 @@ function SignIn({ signUpMode }: any) {
               />
             </Link>
 
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-              Sign in to your account
+            <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+              Sign in
             </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
+            <p className="mt-2 text-sm text-gray-600">
               Or New Member?{" "}
               <button
                 className="font-medium text-lg text-blue-600 hover:text-blue-500 hover:underline"

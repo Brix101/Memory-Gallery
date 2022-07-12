@@ -1,12 +1,12 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React, { Fragment } from "react";
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { Disclosure, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
-import galleryImage from "../assets/gallery.png";
-import Copyright from "./Copyright";
+import galleryImage from "../assets/images/gallery.png";
+import { Typography } from "@mui/material";
 
 interface navItem {
   name: string;
@@ -40,17 +40,21 @@ export default function NavigationBar() {
                   {/* Logo */}
                   <div className="flex-shrink-0 flex items-center">
                     <Link
-                      className="flex items-center hover:bg-slate-700  rounded-md"
+                      className="flex items-center hover:bg-slate-700  px-1 rounded-md"
                       to="/"
                     >
                       <img
-                        className="block h-10 px-1"
+                        className="block h-10"
                         src={galleryImage}
                         alt="Gallery"
                       />
-                      <h1 className="text-slate-50 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                      <Typography
+                        className="hidden sm:block text-slate-50 hover:text-white pl-2"
+                        variant="h5"
+                        component="h2"
+                      >
                         Gallery
-                      </h1>
+                      </Typography>
                     </Link>
                   </div>
                   {/* Nav Item */}
@@ -120,10 +124,6 @@ export default function NavigationBar() {
           </>
         )}
       </Disclosure>
-
-      {/* Page Views */}
-      <Outlet />
-      <Copyright />
     </>
   );
 }
