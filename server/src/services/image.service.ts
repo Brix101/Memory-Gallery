@@ -8,7 +8,7 @@ class ImageService {
   public images = imageModel;
 
   public async findAllImage(): Promise<Image[]> {
-    const images: Image[] = await this.images.find();
+    const images: Image[] = await (await this.images.find()).reverse();
     return images;
   }
 
