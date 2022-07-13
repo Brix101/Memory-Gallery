@@ -1,7 +1,63 @@
 import React from "react";
+import {
+  CircularProgress,
+  Container,
+  Grid,
+  IconButton,
+  ImageList,
+  ImageListItem,
+  ImageListItemBar,
+  ListSubheader,
+} from "@mui/material";
+import ImageCard from "../components/imageComponents/ImageCard";
+import { Image } from "../interfaces";
+import { useGetImagesQuery } from "../services/image.service";
+import InfoIcon from "@mui/icons-material/Info";
 
 function Home() {
-  return <div>Home</div>;
+  const { data: images, isLoading, error } = useGetImagesQuery("");
+
+  if (error) {
+    console.log(error);
+  }
+  if (isLoading) {
+    return (
+      <div
+        className="absolute z-50 w-full h-full bg-inherit flex justify-center items-center"
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+      >
+        <CircularProgress sx={{ color: "white" }} />
+      </div>
+    );
+  }
+  return (
+    <Container
+      maxWidth="lg"
+      sx={{ py: 5, display: "flex", justifyContent: "center" }}
+    >
+      {images && (
+        <ImageList sx={{ width: "100%", height: "auto" }} cols={4} gap={4}>
+          {images?.map((image: Image, i) => (
+            <ImageListItem key={i}>
+              <img src={image.path} alt={image.originalname} loading="lazy" />
+              <ImageListItemBar
+                title={image.title}
+                // subtitle={item.author}
+                actionIcon={
+                  <IconButton
+                    sx={{ color: "rgba(255, 255, 255, 0.54)" }}
+                    aria-label={`info about ${image.title}`}
+                  >
+                    <InfoIcon />
+                  </IconButton>
+                }
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      )}
+    </Container>
+  );
 }
 
 export default Home;
