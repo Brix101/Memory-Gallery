@@ -68,11 +68,11 @@ function SignIn({ signUpMode }: any) {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm space-y-1">
               <div>
-                <label htmlFor="email-address" className="sr-only">
+                <label htmlFor="signin-email-address" className="sr-only">
                   Email address
                 </label>
                 <input
-                  id="email-address"
+                  id="signin-email-address"
                   name="email"
                   type="email"
                   autoComplete="email"
@@ -84,11 +84,11 @@ function SignIn({ signUpMode }: any) {
                 />
               </div>
               <div>
-                <label htmlFor="password" className="sr-only">
+                <label htmlFor="signin-password" className="sr-only">
                   Password
                 </label>
                 <input
-                  id="password"
+                  id="signin-password"
                   name="password"
                   type="password"
                   autoComplete="current-password"

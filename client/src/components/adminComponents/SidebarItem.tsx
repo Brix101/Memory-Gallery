@@ -59,6 +59,7 @@ function SidebarItem() {
     <>
       {navigation.map((item, i) => (
         <ListItemButton
+          key={i}
           selected={item.current}
           onClick={() => {
             navigate(item.to, { state: item.name });
