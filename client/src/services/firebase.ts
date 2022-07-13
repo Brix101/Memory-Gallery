@@ -29,22 +29,24 @@ const db = getFirestore(app);
 
 const googleProvider = new GoogleAuthProvider();
 
+// TODO update middleware from firebase
 const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
-    const docs = await getDocs(q);
-    if (docs.docs.length === 0) {
-      await addDoc(collection(db, "users"), {
-        uid: user.uid,
-        name: user.displayName,
-        authProvider: "google",
-        email: user.email,
-      });
-      // signOut(auth);
-      // return alert("User Not Verified");
-    }
+    // const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    // const docs = await getDocs(q);
+    // if (docs.docs.length === 0) {
+    //   await addDoc(collection(db, "users"), {
+    //     uid: user.uid,
+    //     name: user.displayName,
+    //     authProvider: "google",
+    //     email: user.email,
+    //   });
+    // signOut(auth);
+    // return alert("User Not Verified");
+    // }
+    console.log(res);
   } catch (err: any) {
     console.error(err);
     alert(err.message);
