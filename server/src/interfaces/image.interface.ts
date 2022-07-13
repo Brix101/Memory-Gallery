@@ -3,5 +3,7 @@ export interface Image {
   title: string;
   description: string;
   tags: [string];
-  imageLink: string;
+  originalname: string;
+  path: string;
+  filename: string;
 }
