@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Images from "./pages/Images";
 import Messages from "./pages/Messages";
 import Page404 from "./pages/Page404";
+import Profile from "./pages/Profile";
 import Users from "./pages/Users";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="account" element={<Account />} />
           <Route path="images" element={<Images />} />
           <Route path="messages" element={<Messages />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="users" element={<Users />} />
         </Route>
         <Route path="*" element={<Page404 />} />
