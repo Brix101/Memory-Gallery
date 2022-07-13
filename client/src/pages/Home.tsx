@@ -9,7 +9,6 @@ import {
   ImageListItemBar,
   ListSubheader,
 } from "@mui/material";
-import ImageCard from "../components/imageComponents/ImageCard";
 import { Image } from "../interfaces";
 import { useGetImagesQuery } from "../services/image.service";
 import InfoIcon from "@mui/icons-material/Info";
