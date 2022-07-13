@@ -44,7 +44,16 @@ function Home() {
         >
           {images?.map((image: Image, i) => (
             <ImageListItem key={i}>
-              <img src={image.path} alt={image.originalname} loading="lazy" />
+              <img
+                src={image.path}
+                alt={image.originalname}
+                loading="lazy"
+                style={{
+                  width: "auto",
+                  height: " 300px",
+                  objectFit: "fill",
+                }}
+              />
               <ImageListItemBar
                 title={image.title}
                 // subtitle={item.author}
