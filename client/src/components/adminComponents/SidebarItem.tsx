@@ -22,7 +22,6 @@ interface navItem {
 function SidebarItem() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(pathname);
 
   const navigation: navItem[] = [
     {
