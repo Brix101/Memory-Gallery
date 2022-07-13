@@ -5,6 +5,8 @@ import galleryImage from "../../assets/images/gallery.png";
 import { Link } from "react-router-dom";
 import AlertMessage from "../AlertMessage";
 import { registerWithEmailAndPassword } from "../../services/firebase";
+import { ArrowCircleLeftIcon } from "@heroicons/react/outline";
+import { Typography } from "@mui/material";
 
 function SignUp({ signInMode }: any) {
   const [state, setState] = useState({ email: "", password: "" });
@@ -28,12 +30,20 @@ function SignUp({ signInMode }: any) {
       <div className="min-h-full flex items-center justify-center ">
         <div className="max-w-md w-full space-y-8">
           <div>
-            <Link to="/" state="/">
-              <img
-                className="mx-auto h-12 w-auto hover:bg-gray-200 px-1 rounded-md"
-                src={galleryImage}
-                alt="Gallery"
-              />
+            <Link
+              className="group flex items-center justify-center bg-slate-200 hover:bg-slate-500  px-1 rounded-md"
+              to="/"
+              state="/"
+            >
+              <ArrowCircleLeftIcon className="h-8 w-auto px-1 text-gray-700 group-hover:text-white" />
+              <img className="block h-10" src={galleryImage} alt="Gallery" />
+              <Typography
+                className="text-gray-700 group-hover:text-white pl-2"
+                variant="h5"
+                component="h2"
+              >
+                Gallery
+              </Typography>
             </Link>
             <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
               Create a new Account
