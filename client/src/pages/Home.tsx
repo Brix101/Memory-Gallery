@@ -2,12 +2,10 @@ import React from "react";
 import {
   CircularProgress,
   Container,
-  Grid,
   IconButton,
   ImageList,
   ImageListItem,
   ImageListItemBar,
-  ListSubheader,
 } from "@mui/material";
 import { Image } from "../interfaces";
 import { useGetImagesQuery } from "../services/image.service";
@@ -35,7 +33,15 @@ function Home() {
       sx={{ py: 5, display: "flex", justifyContent: "center" }}
     >
       {images && (
-        <ImageList sx={{ width: "100%", height: "auto" }} cols={4} gap={4}>
+        <ImageList
+          sx={{
+            width: "100%",
+            height: "auto",
+            gridTemplateColumns:
+              "repeat(auto-fill, minmax(250px, 1fr))!important",
+          }}
+          gap={20}
+        >
           {images?.map((image: Image, i) => (
             <ImageListItem key={i}>
               <img src={image.path} alt={image.originalname} loading="lazy" />
