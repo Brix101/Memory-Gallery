@@ -6,4 +6,5 @@ export default interface Image {
   originalname: string;
   path: string;
   filename: string;
+  createdAt: string;
 }
