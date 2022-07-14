@@ -1,22 +1,14 @@
 import React from "react";
 import {
   Box,
-  Button,
-  Card,
-  CardContent,
-  TextField,
-  InputAdornment,
-  SvgIcon,
-  Typography,
   CircularProgress,
   Pagination,
   Grid,
   Container,
 } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { useGetImagesQuery } from "../../services/image.service";
 import ImageCard from "../../components/imageComponents/ImageCard";
+import ImageListToolbar from "../../components/adminComponents/ImageListToolbar";
 
 function Images() {
   const { data: images, isLoading, error } = useGetImagesQuery("");
@@ -34,53 +26,15 @@ function Images() {
     );
   }
   return (
-    <>
-      <Box
-        sx={{
-          alignItems: "center",
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          m: -1,
-        }}
-      >
-        <Typography sx={{ m: 1 }} variant="h4">
-          Images
-        </Typography>
-        <Box sx={{ m: 1 }}>
-          <Button
-            startIcon={<AddCircleIcon fontSize="small" />}
-            color="primary"
-            variant="contained"
-          >
-            Add Image
-          </Button>
-        </Box>
-      </Box>
-      <Box sx={{ mt: 3 }}>
-        <Card>
-          <CardContent>
-            <Box sx={{ maxWidth: 500 }}>
-              <TextField
-                fullWidth
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SvgIcon fontSize="small" color="action">
-                        <SearchIcon />
-                      </SvgIcon>
-                    </InputAdornment>
-                  ),
-                }}
-                placeholder="Search"
-                variant="outlined"
-              />
-            </Box>
-          </CardContent>
-        </Card>
-      </Box>
-
+    <Box
+      component="main"
+      sx={{
+        flexGrow: 1,
+      }}
+    >
       <Container maxWidth={false}>
+        <ImageListToolbar />
+
         <Box sx={{ pt: 3 }}>
           <Grid container spacing={3}>
             {images?.map((image, i) => (
@@ -100,7 +54,7 @@ function Images() {
           <Pagination color="primary" count={3} size="small" />
         </Box>
       </Container>
-    </>
+    </Box>
   );
 }
 
