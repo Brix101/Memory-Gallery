@@ -1,4 +1,4 @@
-export interface Image {
+export default interface Image {
   _id: string;
   title: string;
   description: string;
@@ -6,4 +6,5 @@ export interface Image {
   originalname: string;
   path: string;
   filename: string;
+  createdAt: string;
 }

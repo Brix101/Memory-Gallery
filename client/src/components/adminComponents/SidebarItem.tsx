@@ -22,7 +22,6 @@ interface navItem {
 function SidebarItem() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(pathname);
 
   const navigation: navItem[] = [
     {
@@ -36,12 +35,6 @@ function SidebarItem() {
       to: "images",
       icon: <ImageIcon />,
       current: pathname === "/admin/images",
-    },
-    {
-      name: "Messages",
-      to: "messages",
-      icon: <MessageIcon />,
-      current: pathname === "/admin/messages",
     },
     {
       name: "Users",
@@ -60,6 +53,7 @@ function SidebarItem() {
     <>
       {navigation.map((item, i) => (
         <ListItemButton
+          key={i}
           selected={item.current}
           onClick={() => {
             navigate(item.to, { state: item.name });

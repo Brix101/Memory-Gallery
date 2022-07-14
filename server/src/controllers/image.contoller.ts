@@ -10,7 +10,7 @@ class ImageContoller {
     try {
       const findAllImagesData: Image[] = await this.imageService.findAllImage();
 
-      res.status(200).json({ data: findAllImagesData, message: 'findAll' });
+      res.status(200).json(findAllImagesData);
     } catch (error) {
       next(error);
     }
@@ -29,7 +29,7 @@ class ImageContoller {
         data.push(createImageData);
       }
 
-      res.status(201).json({ data: data, message: 'created' });
+      res.status(201).json(data);
     } catch (error) {
       next(error);
     }
@@ -41,7 +41,7 @@ class ImageContoller {
       const imageData: CreateImageDto = req.body;
       const updateImageData: Image = await this.imageService.updateImage(imageId, imageData);
 
-      res.status(200).json({ data: updateImageData, message: 'updated' });
+      res.status(200).json(updateImageData);
     } catch (error) {
       next(error);
     }
@@ -52,7 +52,7 @@ class ImageContoller {
       const imageId: string = req.params.id;
       const deleteImageData: Image = await this.imageService.deleteImage(imageId);
 
-      res.status(200).json({ data: deleteImageData, message: 'deleted' });
+      res.status(200).json(deleteImageData);
     } catch (error) {
       next(error);
     }

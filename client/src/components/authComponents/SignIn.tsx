@@ -9,6 +9,8 @@ import {
   logInWithEmailAndPassword,
   signInWithGoogle,
 } from "../../services/firebase";
+import { ArrowCircleLeftIcon } from "@heroicons/react/outline";
+import { Typography } from "@mui/material";
 
 function SignIn({ signUpMode }: any) {
   const [state, setState] = useState({ email: "", password: "" });
@@ -27,12 +29,20 @@ function SignIn({ signUpMode }: any) {
       <div className="min-h-full flex items-center justify-center ">
         <div className="max-w-md w-full space-y-8">
           <div>
-            <Link to="/" state="/">
-              <img
-                className="mx-auto h-12 w-auto hover:bg-gray-200 px-1 rounded-md"
-                src={galleryImage}
-                alt="Gallery"
-              />
+            <Link
+              className="group flex items-center justify-center bg-slate-200 hover:bg-slate-500  px-1 rounded-md"
+              to="/"
+              state="/"
+            >
+              <ArrowCircleLeftIcon className="h-8 w-auto px-1 text-gray-700 group-hover:text-white" />
+              <img className="block h-10" src={galleryImage} alt="Gallery" />
+              <Typography
+                className="text-gray-700 group-hover:text-white pl-2"
+                variant="h5"
+                component="h2"
+              >
+                Gallery
+              </Typography>
             </Link>
 
             <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
@@ -58,11 +68,11 @@ function SignIn({ signUpMode }: any) {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm space-y-1">
               <div>
-                <label htmlFor="email-address" className="sr-only">
+                <label htmlFor="signin-email-address" className="sr-only">
                   Email address
                 </label>
                 <input
-                  id="email-address"
+                  id="signin-email-address"
                   name="email"
                   type="email"
                   autoComplete="email"
@@ -74,11 +84,11 @@ function SignIn({ signUpMode }: any) {
                 />
               </div>
               <div>
-                <label htmlFor="password" className="sr-only">
+                <label htmlFor="signin-password" className="sr-only">
                   Password
                 </label>
                 <input
-                  id="password"
+                  id="signin-password"
                   name="password"
                   type="password"
                   autoComplete="current-password"
