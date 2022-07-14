@@ -43,7 +43,10 @@ function Home() {
           gap={20}
         >
           {images?.map((image: Image, i) => (
-            <ImageListItem key={i} className="group rounded-md cursor-pointer">
+            <ImageListItem
+              key={i}
+              className="group rounded-md cursor-pointer bg-gray-50"
+            >
               <img
                 className="rounded-md"
                 src={image.path}
