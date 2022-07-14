@@ -6,8 +6,6 @@ import About from "./pages/About";
 import Account from "./pages/admin/Account";
 import Dashboard from "./pages/admin/Dashboard";
 import Images from "./pages/admin/Images";
-import Messages from "./pages/admin/Messages";
-import Profile from "./pages/admin/Profile";
 import Users from "./pages/admin/Users";
 import Auth from "./pages/Auth";
 import Contact from "./pages/Contact";
@@ -30,8 +28,6 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="account" element={<Account />} />
           <Route path="images" element={<Images />} />
-          <Route path="messages" element={<Messages />} />
-          <Route path="profile" element={<Profile />} />
           <Route path="users" element={<Users />} />
         </Route>
         <Route path="*" element={<Page404 />} />
