@@ -1,8 +1,8 @@
 import { Grid, Paper } from "@mui/material";
 import React from "react";
-import Chart from "../components/adminComponents/Chart";
-import Deposits from "../components/adminComponents/Deposits";
-import Orders from "../components/adminComponents/Orders";
+import Chart from "../../components/adminComponents/Chart";
+import Deposits from "../../components/adminComponents/Deposits";
+import Orders from "../../components/adminComponents/Orders";
 
 function Dashboard() {
   return (

@@ -3,17 +3,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Admin from "./layout/Admin";
 import Main from "./layout/Main";
 import About from "./pages/About";
-import Account from "./pages/Account";
+import Account from "./pages/admin/Account";
+import Dashboard from "./pages/admin/Dashboard";
+import Images from "./pages/admin/Images";
+import Messages from "./pages/admin/Messages";
+import Profile from "./pages/admin/Profile";
+import Users from "./pages/admin/Users";
 import Auth from "./pages/Auth";
 import Contact from "./pages/Contact";
-import Dashboard from "./pages/Dashboard";
 import Gallery from "./pages/Gallery";
 import Home from "./pages/Home";
-import Images from "./pages/Images";
-import Messages from "./pages/Messages";
 import Page404 from "./pages/Page404";
-import Profile from "./pages/Profile";
-import Users from "./pages/Users";
 
 function App() {
   return (
