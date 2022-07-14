@@ -2,7 +2,6 @@ import React, { ReactElement } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
-import BadgeIcon from "@mui/icons-material/Badge";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -38,22 +37,10 @@ function SidebarItem() {
       current: pathname === "/admin/images",
     },
     {
-      name: "Messages",
-      to: "messages",
-      icon: <MessageIcon />,
-      current: pathname === "/admin/messages",
-    },
-    {
       name: "Users",
       to: "users",
       icon: <PeopleAltIcon />,
       current: pathname === "/admin/users",
-    },
-    {
-      name: "Profile",
-      to: "profile",
-      icon: <BadgeIcon />,
-      current: pathname === "/admin/profile",
     },
     {
       name: "Account",
