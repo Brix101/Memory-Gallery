@@ -1,20 +1,19 @@
 import * as React from "react";
-import Backdrop from "@mui/material/Backdrop";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-// web.cjs is required for IE11 support
-import { useSpring, animated } from "react-spring";
 import {
+  Backdrop,
+  CardMedia,
   Dialog,
-  DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle,
-  FormControl,
-  InputLabel,
+  IconButton,
+  Modal,
 } from "@mui/material";
+
+// web.cjs is required for IE11 support
+import { useSpring, animated } from "react-spring";
+
+import CloseIcon from "@mui/icons-material/Close";
+
 import { Image } from "../../interfaces";
 
 interface FadeProps {
@@ -51,18 +50,6 @@ const Fade = React.forwardRef<HTMLDivElement, FadeProps>(function Fade(
   );
 });
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
 interface props {
   image: Image | undefined;
   onClose: any;
@@ -93,33 +80,26 @@ export default function ImageModal({ image, onClose }: props) {
         BackdropProps={{
           timeout: 500,
         }}
+        sx={{ display: "flex", justifyContent: "center" }}
       >
         <Fade in={open}>
-          <Dialog
-            fullWidth={true}
-            maxWidth={"lg"}
-            open={open}
-            onClose={handleClose}
-          >
-            <DialogActions>
-              <Button onClick={handleClose}>Close</Button>
-            </DialogActions>
+          <Dialog maxWidth={"lg"} open={open} onClose={handleClose}>
+            <IconButton
+              color="inherit"
+              onClick={handleClose}
+              sx={{ position: "absolute", right: 15, top: 5 }}
+            >
+              <CloseIcon />
+            </IconButton>
             <DialogContent>
-              {image && (
-                <img
-                  className="rounded-md"
-                  src={image.path}
-                  alt={image.originalname}
-                  loading="lazy"
-                  style={{
-                    width: "auto",
-                    height: "auto",
-                    objectFit: "fill",
-                  }}
-                />
-              )}
-              <DialogContentText>{image?.description}</DialogContentText>
+              <CardMedia
+                component="img"
+                image={image?.path}
+                alt={image?.originalname}
+                sx={{ p: 1, width: "100%" }}
+              />
             </DialogContent>
+            <DialogContentText>{image?.description}</DialogContentText>
           </Dialog>
         </Fade>
       </Modal>
