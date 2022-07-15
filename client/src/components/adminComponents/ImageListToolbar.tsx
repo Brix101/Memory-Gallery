@@ -11,7 +11,12 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
-function ImageListToolbar() {
+interface props {
+  checked: boolean;
+  toggleCheck: any;
+}
+
+function ImageListToolbar({ checked, toggleCheck }: props) {
   return (
     <Box>
       <Box
@@ -27,32 +32,10 @@ function ImageListToolbar() {
           Images
         </Typography>
         <Box sx={{ m: 1 }}>
-          <Button color="primary" variant="contained">
-            Add Image
+          <Button color="primary" variant="contained" onClick={toggleCheck}>
+            {checked ? "View Images" : "Add Image"}
           </Button>
         </Box>
-      </Box>
-      <Box sx={{ mt: 3 }}>
-        <Card>
-          <CardContent>
-            <Box sx={{ maxWidth: 500 }}>
-              <TextField
-                fullWidth
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SvgIcon color="action" fontSize="small">
-                        <SearchIcon />
-                      </SvgIcon>
-                    </InputAdornment>
-                  ),
-                }}
-                placeholder="Search"
-                variant="outlined"
-              />
-            </Box>
-          </CardContent>
-        </Card>
       </Box>
     </Box>
   );
