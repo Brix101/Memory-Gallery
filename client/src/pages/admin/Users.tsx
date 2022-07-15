@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Container } from "@mui/material";
 import UserListToolbar from "../../components/adminComponents/UserListToolbar";
-import CustomerListResults from "../../components/adminComponents/CustomerListResults";
+import UserListResults from "../../components/adminComponents/UserListResults";
 
 function Users() {
   return (
@@ -14,7 +14,7 @@ function Users() {
       <Container maxWidth={false}>
         <UserListToolbar />
         <Box sx={{ mt: 3 }}>
-          <CustomerListResults />
+          <UserListResults />
         </Box>
       </Container>
     </Box>
