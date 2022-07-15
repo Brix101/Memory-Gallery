@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CircularProgress, Container, ImageList } from "@mui/material";
 import { Image } from "../interfaces";
 import { useGetImagesQuery } from "../services/image.service";
-import ImageItemCard from "../components/imageComponents/ImageItemCard";
+import ImageMainCard from "../components/imageComponents/ImageMainCard";
 import ImageModal from "../components/imageComponents/ImageModal";
 
 function Gallery() {
@@ -30,14 +30,16 @@ function Gallery() {
   };
   return (
     <Container
-      maxWidth="xl"
-      sx={{ py: 5, display: "flex", justifyContent: "center" }}
+      sx={{
+        py: 5,
+        display: "flex",
+        justifyContent: "center",
+      }}
     >
       <ImageModal image={image} onClose={onCloseModal} />
       {images && (
         <ImageList
           sx={{
-            p: 5,
             width: "100%",
             height: "auto",
             gridTemplateColumns:
@@ -46,7 +48,7 @@ function Gallery() {
           gap={20}
         >
           {images?.map((image: Image, i) => (
-            <ImageItemCard image={image} key={i} onClick={onImageClick} />
+            <ImageMainCard image={image} key={i} onClick={onImageClick} />
           ))}
         </ImageList>
       )}

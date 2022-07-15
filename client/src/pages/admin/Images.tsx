@@ -7,7 +7,7 @@ import {
   Container,
 } from "@mui/material";
 import { useGetImagesQuery } from "../../services/image.service";
-import ImageCard from "../../components/imageComponents/ImageCard";
+import ImageAdminCard from "../../components/imageComponents/ImageAdminCard";
 import ImageListToolbar from "../../components/adminComponents/ImageListToolbar";
 
 // TODO image modal,  add image funtion
@@ -40,7 +40,7 @@ function Images() {
           <Grid container spacing={3}>
             {images?.map((image, i) => (
               <Grid item key={i} lg={4} md={6} xs={12}>
-                <ImageCard image={image} />
+                <ImageAdminCard image={image} />
               </Grid>
             ))}
           </Grid>

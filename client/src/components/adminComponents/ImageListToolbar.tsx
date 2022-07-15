@@ -9,8 +9,6 @@ import {
   SvgIcon,
   Typography,
 } from "@mui/material";
-import UploadIcon from "@mui/icons-material/Upload";
-import DownloadIcon from "@mui/icons-material/Download";
 import SearchIcon from "@mui/icons-material/Search";
 
 function ImageListToolbar() {
@@ -29,14 +27,8 @@ function ImageListToolbar() {
           Images
         </Typography>
         <Box sx={{ m: 1 }}>
-          <Button startIcon={<UploadIcon fontSize="small" />} sx={{ mr: 1 }}>
-            Import
-          </Button>
-          <Button startIcon={<DownloadIcon fontSize="small" />} sx={{ mr: 1 }}>
-            Export
-          </Button>
           <Button color="primary" variant="contained">
-            Add User
+            Add Image
           </Button>
         </Box>
       </Box>
