@@ -10,6 +10,7 @@ import { useGetImagesQuery } from "../../services/image.service";
 import ImageCard from "../../components/imageComponents/ImageCard";
 import ImageListToolbar from "../../components/adminComponents/ImageListToolbar";
 
+// TODO image modal,  add image funtion
 function Images() {
   const { data: images, isLoading, error } = useGetImagesQuery("");
   if (error) {

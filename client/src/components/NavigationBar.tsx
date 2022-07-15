@@ -33,7 +33,10 @@ export default function NavigationBar() {
 
   return (
     <>
-      <Disclosure as="nav" className="sticky top-0 z-50 bg-slate-800 shadow">
+      <Disclosure
+        as="nav"
+        className="sticky top-0 z-50 bg-slate-800 shadow w-100"
+      >
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">

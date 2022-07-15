@@ -1,19 +1,13 @@
-import React from "react";
-import {
-  CircularProgress,
-  Container,
-  IconButton,
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
-} from "@mui/material";
+import React, { useState } from "react";
+import { CircularProgress, Container, ImageList } from "@mui/material";
 import { Image } from "../interfaces";
 import { useGetImagesQuery } from "../services/image.service";
-import InfoIcon from "@mui/icons-material/Info";
 import ImageItemCard from "../components/imageComponents/ImageItemCard";
+import ImageModal from "../components/imageComponents/ImageModal";
 
 function Gallery() {
   const { data: images, isLoading, error } = useGetImagesQuery("");
+  const [image, setImage] = useState<Image | undefined>();
 
   if (error) {
     console.log(error);
@@ -28,14 +22,22 @@ function Gallery() {
       </div>
     );
   }
+  const onImageClick = (data: Image) => {
+    setImage(data);
+  };
+  const onCloseModal = (data: Image) => {
+    setImage(undefined);
+  };
   return (
     <Container
-      maxWidth="lg"
+      maxWidth="xl"
       sx={{ py: 5, display: "flex", justifyContent: "center" }}
     >
+      <ImageModal image={image} onClose={onCloseModal} />
       {images && (
         <ImageList
           sx={{
+            p: 5,
             width: "100%",
             height: "auto",
             gridTemplateColumns:
@@ -44,7 +46,7 @@ function Gallery() {
           gap={20}
         >
           {images?.map((image: Image, i) => (
-            <ImageItemCard image={image} key={i} />
+            <ImageItemCard image={image} key={i} onClick={onImageClick} />
           ))}
         </ImageList>
       )}
