@@ -51,7 +51,7 @@ function Images() {
           {isLoading ? (
             <div
               className="absolute z-50 w-full h-full bg-inherit flex justify-center items-center"
-              style={{ backgroundColor: "#f5f5f5" }}
+              style={{ backgroundColor: "#fff" }}
             >
               <CircularProgress sx={{ color: "blue" }} />
             </div>
