@@ -49,15 +49,14 @@ function Images() {
         flexGrow: 1,
       }}
     >
-      <Container maxWidth={false}>
-        <AdminTitleBar title="Images">
-          <Box sx={{ m: 1 }}>
-            <Button color="primary" variant="contained" onClick={toggleCheck}>
-              {checked ? "View Images" : "Add Image"}
-            </Button>
-          </Box>
-        </AdminTitleBar>
-
+      <AdminTitleBar title="Images">
+        <Box sx={{ m: 1 }}>
+          <Button color="primary" variant="contained" onClick={toggleCheck}>
+            {checked ? "View Images" : "Add Image"}
+          </Button>
+        </Box>
+      </AdminTitleBar>
+      <>
         <Slide direction="right" in={!checked} mountOnEnter unmountOnExit>
           <div>
             <Box sx={{ mt: 3 }}>
@@ -107,7 +106,7 @@ function Images() {
             <AddImage />
           </Container>
         </Slide>
-      </Container>
+      </>
     </Box>
   );
 }
