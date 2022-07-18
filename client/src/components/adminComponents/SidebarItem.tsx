@@ -26,27 +26,27 @@ function SidebarItem() {
   const navigation: navItem[] = [
     {
       name: "Dashboard",
-      to: "/admin",
+      to: "/dashboard",
       icon: <DashboardIcon />,
-      current: pathname === "/admin",
+      current: pathname === "/dashboard",
     },
     {
       name: "Images",
       to: "images",
       icon: <ImageIcon />,
-      current: pathname === "/admin/images",
+      current: pathname === "/dashboard/images",
     },
     {
       name: "Users",
       to: "users",
       icon: <PeopleAltIcon />,
-      current: pathname === "/admin/users",
+      current: pathname === "/dashboard/users",
     },
     {
       name: "Account",
       to: "account",
       icon: <ManageAccountsIcon />,
-      current: pathname === "/admin/account",
+      current: pathname === "/dashboard/account",
     },
   ];
   return (
