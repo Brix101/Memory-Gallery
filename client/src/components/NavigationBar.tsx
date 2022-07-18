@@ -26,7 +26,7 @@ export default function NavigationBar() {
   const navigation: navItem[] = [
     { name: "Home", to: "/", current: pathname === "/" },
     { name: "Gallery", to: "gallery", current: pathname === "/gallery" },
-    { name: "About Us", to: "about", current: pathname === "/about" },
+    { name: "About", to: "about", current: pathname === "/about" },
     { name: "Contact", to: "contact", current: pathname === "/contact" },
     { name: "Login", to: "login" },
   ];
