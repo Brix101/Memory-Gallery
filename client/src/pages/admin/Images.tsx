@@ -11,13 +11,14 @@ import {
   TextField,
   InputAdornment,
   SvgIcon,
+  Button,
 } from "@mui/material";
 import { useGetImagesQuery } from "../../services/image.service";
 import ImageAdminCard from "../../components/imageComponents/ImageAdminCard";
-import ImageListToolbar from "../../components/adminComponents/ImageListToolbar";
 import AddImage from "./UploadImage";
 
 import SearchIcon from "@mui/icons-material/Search";
+import AdminTitleBar from "../../components/adminComponents/AdminTitleBar";
 
 // TODO image modal,  add image funtion
 function Images() {
@@ -49,10 +50,16 @@ function Images() {
       }}
     >
       <Container maxWidth={false}>
-        <ImageListToolbar checked={checked} toggleCheck={toggleCheck} />
+        <AdminTitleBar title="Images">
+          <Box sx={{ m: 1 }}>
+            <Button color="primary" variant="contained" onClick={toggleCheck}>
+              {checked ? "View Images" : "Add Image"}
+            </Button>
+          </Box>
+        </AdminTitleBar>
 
         <Slide direction="right" in={!checked} mountOnEnter unmountOnExit>
-          <Container>
+          <div>
             <Box sx={{ mt: 3 }}>
               <Card>
                 <CardContent>
@@ -93,7 +100,7 @@ function Images() {
             >
               <Pagination color="primary" count={3} size="small" />
             </Box>
-          </Container>
+          </div>
         </Slide>
         <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
           <Container>
