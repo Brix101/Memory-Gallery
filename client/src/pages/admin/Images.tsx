@@ -101,9 +101,9 @@ function Images() {
           )}
         </Slide>
         <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
-          <Container>
+          <div>
             <AddImage />
-          </Container>
+          </div>
         </Slide>
       </>
     </Box>
