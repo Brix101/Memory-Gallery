@@ -15,7 +15,7 @@ function Auth() {
   const [user, loading] = useAuthState(auth);
 
   if (user) {
-    return <Navigate to="/admin" replace />;
+    return <Navigate to="/dashboard" replace />;
   }
 
   const signUpMode = () => {
