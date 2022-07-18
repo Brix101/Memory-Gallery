@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { getInitials } from "../../services/get-initial";
 
-function CustomerListResults() {
+function UserListResults() {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
@@ -217,4 +217,4 @@ export const customers: Customer[] = [
     name: "Merrile Burgett",
   },
 ];
-export default CustomerListResults;
+export default UserListResults;

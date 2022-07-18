@@ -21,7 +21,7 @@ interface props {
   image: Image;
 }
 
-function ImageCard({ image }: props) {
+function ImageAdminCard({ image }: props) {
   return (
     <>
       <Card
@@ -37,7 +37,7 @@ function ImageCard({ image }: props) {
               <MoreVertIcon />
             </IconButton>
           }
-          title={image.title}
+          subheader={image._id}
         />
         <CardMedia
           component="img"
@@ -73,4 +73,4 @@ function ImageCard({ image }: props) {
   );
 }
 
-export default ImageCard;
+export default ImageAdminCard;

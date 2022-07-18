@@ -3,7 +3,9 @@ import React, { Fragment } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { Disclosure, Transition } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+// import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
 
 import galleryImage from "../assets/images/gallery.png";
 import { Typography } from "@mui/material";
@@ -24,7 +26,7 @@ export default function NavigationBar() {
   const navigation: navItem[] = [
     { name: "Home", to: "/", current: pathname === "/" },
     { name: "Gallery", to: "gallery", current: pathname === "/gallery" },
-    { name: "About Us", to: "about", current: pathname === "/about" },
+    { name: "About", to: "about", current: pathname === "/about" },
     { name: "Contact", to: "contact", current: pathname === "/contact" },
     { name: "Login", to: "login" },
   ];
@@ -83,7 +85,7 @@ export default function NavigationBar() {
                   <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
-                      <XIcon className="block h-6 w-6" aria-hidden="true" />
+                      <CloseIcon className="block h-6 w-6" aria-hidden="true" />
                     ) : (
                       <MenuIcon className="block h-6 w-6" aria-hidden="true" />
                     )}

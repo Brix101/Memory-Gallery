@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { LockClosedIcon } from "@heroicons/react/solid";
 import { FcGoogle } from "react-icons/fc";
 
 import galleryImage from "../../assets/images/gallery.png";
@@ -9,7 +8,8 @@ import {
   logInWithEmailAndPassword,
   signInWithGoogle,
 } from "../../services/firebase";
-import { ArrowCircleLeftIcon } from "@heroicons/react/outline";
+import LockIcon from "@mui/icons-material/Lock";
+import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import { Typography } from "@mui/material";
 
 function SignIn({ signUpMode }: any) {
@@ -34,8 +34,12 @@ function SignIn({ signUpMode }: any) {
               to="/"
               state="/"
             >
-              <ArrowCircleLeftIcon className="h-8 w-auto px-1 text-gray-700 group-hover:text-white" />
-              <img className="block h-10" src={galleryImage} alt="Gallery" />
+              <ArrowCircleLeftIcon className="text-gray-700 group-hover:text-white" />
+              <img
+                className="pl-2 block h-10"
+                src={galleryImage}
+                alt="Gallery"
+              />
               <Typography
                 className="text-gray-700 group-hover:text-white pl-2"
                 variant="h5"
@@ -120,7 +124,7 @@ function SignIn({ signUpMode }: any) {
                 className="group relative w-full flex items-center justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white text-lg bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 <span className=" flex items-center pl-3">
-                  <LockClosedIcon
+                  <LockIcon
                     className="h-5 w-5 text-blue-500 group-hover:text-blue-400"
                     aria-hidden="true"
                   />
